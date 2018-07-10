@@ -17,10 +17,8 @@ int main(void)
 	PinMap radio_map = {PA4, PA2, PA0, &PORTA, &DDRA};
 	CommEngine comm = CommEngine{display_map, radio_map};
 	
-	comm.SendByte(0x0F,comm.display_map);
-	comm.SendByte(0x0F,comm.display_map);
 		
-	/*for(uint8_t i = 0; i < 10; i++) {
+	for(uint8_t i = 0; i < 10; i++) {
 		_delay_ms(1000);
 		//display test mode
 		comm.SendByte(0x0F,comm.display_map);
@@ -31,6 +29,6 @@ int main(void)
 		comm.SendByte(0x0C,comm.display_map);
 		comm.SendByte(0x0C,comm.display_map);
 		
-	}*/
+	}
 	
 }
