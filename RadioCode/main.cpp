@@ -7,7 +7,7 @@
 
 #define F_CPU 8000000
 
-#include "CommEngine.h"
+#include "CommEngine/CommEngine.h"
 #include <util/delay.h>
 
 int main(void)
