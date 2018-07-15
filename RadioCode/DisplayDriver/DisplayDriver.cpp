@@ -15,7 +15,8 @@ DisplayDriver::DisplayDriver(CommEngine* comm_inst):
 		WriteCommand(maxregs.SHUTDOWN, 0x00);
 		
 		// Bring display up in decode mode B for all digits
-		WriteCommand(maxregs.DECMODE, 0xFF);
+		//WriteCommand(maxregs.DECMODE, 0xFF);
+		WriteCommand(maxregs.DECMODE, 0x00);
 		
 		// Set the scan limit to all 7 segments
 		WriteCommand(maxregs.SCANLIM, 0x07);
@@ -40,6 +41,13 @@ void DisplayDriver::WriteCommand(uint8_t reg, uint8_t data) {
 
 void DisplayDriver::BlankDisplay() {
 	for (uint8_t i=0;i<8;i++) {
-		WriteCommand(i+1,0x0F);
+		WriteCommand(i+1,0x00);
+	}
+}
+
+void DisplayDriver::DisplayHexWord(uint_fast16_t word) {
+	for (uint8_t i=4; i>0; i--) {
+		WriteCommand(i, font[word & 0x0F]);
+		word = word >> 4;
 	}
 }

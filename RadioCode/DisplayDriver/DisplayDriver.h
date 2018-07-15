@@ -36,9 +36,29 @@ class DisplayDriver {
 	public:
 	const MAX7221 maxregs;
 	
+	const uint8_t font[16] = {
+		0b01111110, // 0
+		0b00110000, // 1
+		0b01101101, // 2
+		0b01111001, // 3
+		0b00110011, // 4
+		0b01011011, // 5
+		0b01011111, // 6
+		0b01110000, // 7
+		0b01111111, // 8
+		0b01111011, // 9
+		0b01110111, // A
+		0b00011111, // b
+		0b01001110, // C
+		0b00111101, // d
+		0b01001111, // E
+		0b01000111  // F
+	};
+	
 	DisplayDriver(CommEngine* comm_inst);
 	void WriteCommand(uint8_t reg, uint8_t data);
 	void BlankDisplay();
+	void DisplayHexWord(uint_fast16_t word);
 };
 
 
