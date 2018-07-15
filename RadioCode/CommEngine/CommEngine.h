@@ -27,6 +27,7 @@ class CommEngine {
 		void SendByte(uint8_t data_byte, PinMap &device);
 		void PinRegHigh(volatile uint8_t *reg, uint8_t pin);
 		void PinRegLow(volatile uint8_t *reg, uint8_t pin);
+		void SendDisplayByte(uint8_t data_byte) { SendByte(data_byte, display_map); }
 };
 
 

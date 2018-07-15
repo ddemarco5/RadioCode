@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Atmel Studio Solution File, Format Version 11.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CommEngine", "CommEngine\CommEngine.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
-EndProject
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "DisplayDriver", "DisplayDriver\DisplayDriver.cppproj", "{C6D3E7D7-19AF-4C2A-87E5-3BE450D73BD5}"
-EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "RadioCode", "RadioCode\RadioCode.cppproj", "{AA7D3657-D5DE-452D-98AC-84A7BD76CA18}"
 EndProject
 Global
@@ -15,14 +11,6 @@ Global
 		Release|AVR = Release|AVR
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.ActiveCfg = Debug|AVR
-		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.Build.0 = Debug|AVR
-		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.ActiveCfg = Release|AVR
-		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.Build.0 = Release|AVR
-		{C6D3E7D7-19AF-4C2A-87E5-3BE450D73BD5}.Debug|AVR.ActiveCfg = Debug|AVR
-		{C6D3E7D7-19AF-4C2A-87E5-3BE450D73BD5}.Debug|AVR.Build.0 = Debug|AVR
-		{C6D3E7D7-19AF-4C2A-87E5-3BE450D73BD5}.Release|AVR.ActiveCfg = Release|AVR
-		{C6D3E7D7-19AF-4C2A-87E5-3BE450D73BD5}.Release|AVR.Build.0 = Release|AVR
 		{AA7D3657-D5DE-452D-98AC-84A7BD76CA18}.Debug|AVR.ActiveCfg = Debug|AVR
 		{AA7D3657-D5DE-452D-98AC-84A7BD76CA18}.Debug|AVR.Build.0 = Debug|AVR
 		{AA7D3657-D5DE-452D-98AC-84A7BD76CA18}.Release|AVR.ActiveCfg = Release|AVR

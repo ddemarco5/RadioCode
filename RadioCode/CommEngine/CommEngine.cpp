@@ -45,10 +45,10 @@ void CommEngine::SendByte(uint8_t data_byte, PinMap &device) {
 	
 	
 	// Drop chip select to let our chip know we want to talk to it.
-	PinRegLow(device.pin_port_reg,device.select_pin);
+	//PinRegLow(device.pin_port_reg,device.select_pin);
 
 	// Delay 5 mics after we drop chip select
-	_delay_us(5);
+	//_delay_us(5);
 	
 	for (uint8_t i = 0; i < 8; ++i, data_byte <<= 1) {
 		
@@ -70,12 +70,15 @@ void CommEngine::SendByte(uint8_t data_byte, PinMap &device) {
 
 	}
 	
-	// Make chip select high again
-	PinRegHigh(device.pin_port_reg,device.select_pin);
-	
 	// Make data and clock lines low again
 	PinRegLow(device.pin_port_reg,device.clock_pin);
 	PinRegLow(device.pin_port_reg,device.data_pin);
+	
+	// Wait a bit to ensure clock has gone back down before we set chip select high again
+	//_delay_us(5);
+	
+	// Make chip select high again
+	//PinRegHigh(device.pin_port_reg,device.select_pin);
 	
 	// Set data line back to input
 	PinRegLow(device.data_direction_reg,device.data_pin);

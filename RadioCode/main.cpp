@@ -7,7 +7,8 @@
 
 #define F_CPU 8000000
 
-#include "CommEngine/CommEngine.h"
+//#include "CommEngine/CommEngine.h"
+#include "DisplayDriver/DisplayDriver.h"
 #include <util/delay.h>
 
 int main(void)
@@ -16,19 +17,26 @@ int main(void)
 	PinMap display_map = {PA5, PA2, PA1, &PORTA, &DDRA};
 	PinMap radio_map = {PA4, PA2, PA0, &PORTA, &DDRA};
 	CommEngine comm = CommEngine{display_map, radio_map};
+	// This also configures the display
+	DisplayDriver disp = DisplayDriver{&comm};
 	
-		
-	for(uint8_t i = 0; i < 10; i++) {
-		_delay_ms(1000);
-		//display test mode
-		comm.SendByte(0x0F,comm.display_map);
-		comm.SendByte(0x0F,comm.display_map);
-		
-		_delay_ms(1000);
-		//shutdown mode
-		comm.SendByte(0x0C,comm.display_map);
-		comm.SendByte(0x0C,comm.display_map);
-		
+	// The traveling dash
+	
+	//Turn the display on
+	disp.WriteCommand(disp.maxregs.SHUTDOWN, 0x01);
+	
+	disp.BlankDisplay();
+	
+	//Make a dash have a journey
+	uint8_t space = 0;
+	uint8_t prev = 0;
+	for (;;) {
+		disp.WriteCommand(prev+1, 0x8F);
+		disp.WriteCommand(space+1, 0x00);
+		prev = space;
+		space = (space+1)%8;
+		_delay_ms(100);
 	}
+	
 	
 }

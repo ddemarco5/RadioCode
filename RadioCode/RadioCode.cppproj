@@ -160,6 +160,12 @@
     <Compile Include="CommEngine\CommEngine.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="DisplayDriver\DisplayDriver.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="DisplayDriver\DisplayDriver.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
