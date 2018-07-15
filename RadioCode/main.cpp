@@ -27,6 +27,10 @@ int main(void)
 	
 	disp.BlankDisplay();	
 	
-	disp.DisplayHexWord(0xDAAB);
+	uint_fast16_t i = 0;
+	while (i <= 0xFFFF) {
+		disp.DisplayHexWord(i);
+		i++;
+	}
 	
 }
